@@ -1,0 +1,35 @@
+.aside {
+    width: 20vw;
+    height: 100vh;
+    background-color: #30353A;
+}
+
+ul {
+    list-style: none;
+}
+
+.aside img {
+    width: 15vw;
+    padding: 5px;
+    margin-bottom: 20px;
+}
+
+.aside button {
+    background-color: transparent;
+    border: none;
+    margin-top: 30px;
+    font-size: 1.7em;
+    width: 20vw;
+    color: white;
+    padding: 19px 10px;
+    cursor: pointer;
+    transition-duration: .7s;
+    border-radius: 2px;
+}
+
+.aside button:hover {
+    background-color: #FFE100;
+    transition-duration: 1s;
+    color: black;
+}
+

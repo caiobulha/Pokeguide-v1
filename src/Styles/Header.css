@@ -1,0 +1,23 @@
+.header {
+    width: 100%;
+    height: 10vh;
+    background-color: #111222;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+.header button {
+    margin-right: 20px;
+    background-color: #FEE000;
+    padding: 10px;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 0.9em;
+    width: 120px;
+    border-radius: 10px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

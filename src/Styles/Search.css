@@ -1,0 +1,43 @@
+.search span {
+    font-size: 1.4em;
+}
+
+.search {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+.search input {
+    width: 400px;
+    display: flex;  
+    justify-content: center;
+    height: 50px;
+    margin-top: 20vh;
+    border-radius: 10px;
+    font-size: 1.3em;
+    padding-left: 30px;
+    background-image: url('../assets/pokeball.png');
+    background-position: left;
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position-x: 10px;
+    outline: none;
+}
+
+.search input:focus {
+    background-image: none;
+    outline: none;
+
+}
+
+.search input::placeholder {
+    padding: 5px;
+}
+
+.pokeball {
+    width: 30px;
+    height: 30px;
+}
+
+

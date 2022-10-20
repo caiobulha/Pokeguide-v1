@@ -1,0 +1,4 @@
+.contentWrapper {
+    display: flex;
+    flex-flow: row nowrap;
+}

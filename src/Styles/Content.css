@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Flow+Circular&family=Poppins:wght@300&family=Roboto+Mono:wght@300&display=swap');
+
+.content {
+    width: 80vw;
+    height: 100vh;
+    font-family: 'Roboto';
+}
+
+body {
+    font-family: 'Roboto';
+}
