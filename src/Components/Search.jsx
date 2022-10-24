@@ -3,6 +3,7 @@ import '../Styles/Search.css'
 import Card from './Card'
 import pika from '../assets/pikachu.gif'
 import mimi from '../assets/mimikyu.gif'
+import { type } from '@testing-library/user-event/dist/type'
 
 function Search() {
     var x = 0
@@ -16,15 +17,8 @@ function Search() {
         setMimikyu(true)
     }
 
-    const typeHandler = (types) => {
-        if(types[1])
-            return `${types[0].type.name} | ${types[1].type.name}`
-        else
-            return `${types[0].type.name}`
-    }
-
     function insertInfo(data, dataSpecies) {
-        var card = <Card name={data.name} description={dataSpecies.flavor_text} weight={data.weight} height={data.height} captureRate={data.capture_rate} img={data.sprites.front_default} bg={typeHandler(data.types)}/>
+        var card = <Card name={data.name} description={dataSpecies.flavor_text} weight={data.weight} height={data.height} captureRate={dataSpecies.capture_rate} img={data.sprites.front_default} bg={data.types[0].type.name} type={data.types}/>
         setRes(card)
     }
 
@@ -36,7 +30,6 @@ function Search() {
                 var species = data.species.url
                 fetch(species).then(response => response.json().then(dataSpecies => {
                     insertInfo(data, dataSpecies)
-                    setRes(true)
                     setPikachu(false)
                 }))
             }).catch( () => {

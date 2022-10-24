@@ -13,6 +13,24 @@ import psyche from '../assets/backgrounds/psych.gif'
 import space from '../assets/backgrounds/space.gif'
 import stone from '../assets/backgrounds/stone.png'
 import electric from '../assets/backgrounds/eletric.gif'
+import waterI from '../assets/types/water_type.png'
+import bugI from '../assets/types/bug_type.png'
+import darkI from '../assets/types/dark_type.png'
+import dragonI from '../assets/types/dragon_type.png'
+import eletricI from '../assets/types/eletric_type.png'
+import fairyI from '../assets/types/fairy_type.png'
+import fightingI from '../assets/types/fighting_type.png'
+import fireI from '../assets/types/fire_type.png'
+import flyingI from '../assets/types/flying_type.png'
+import ghostI from '../assets/types/ghost_type.png'
+import grassI from '../assets/types/grass_type.png'
+import groundI from '../assets/types/ground_type.png'
+// import iceI from '../assets/types/ice_type.png'
+import normalI from '../assets/types/normal_type.png'
+import poisonI from '../assets/types/poison_type.png'
+import psychicI from '../assets/types/psychic_type.png'
+import rockI from '../assets/types/rock_type.png'
+import steelI from '../assets/types/steel_type.png'
 
 function Card({name, description, weight, height, captureRate, img, bg, type}) {
     const typesObject = {
@@ -37,37 +55,37 @@ function Card({name, description, weight, height, captureRate, img, bg, type}) {
     }
 
     const typesTranslator = {
-        'fire': 'Fogo',
-        'water': 'Água',
-        'dark': 'Sombrio',
-        'dragon': 'Dragão',
-        'fight': 'Lutador',
-        'flying': 'Voador',
-        'ghost': 'Fantasma',
-        'ice': 'Gelo',
-        'grass': 'Planta',
-        'psychic': 'Psiquico',
-        'ground': 'Terra',
-        'stone': 'Pedra',
-        'normal': 'Normal',
-        'steel': 'Metal',
-        'fairy': 'Fada',
-        'bug': 'Inseto',
-        'poison': 'Veneno',
-        'electric': 'Elétrico'
+        'fire': fireI,
+        'water': waterI,
+        'dark': darkI,
+        'dragon': dragonI,
+        'fight': fightingI,
+        'flying': flyingI,
+        'ghost': ghostI,
+        'ice': ghostI,
+        'grass': grassI,
+        'psychic': psychicI,
+        'ground': groundI,
+        'stone': rockI,
+        'normal': normalI,
+        'steel': steelI,
+        'fairy': fairyI,
+        'bug': bugI,
+        'poison': poisonI,
+        'electric': eletricI
     }
     return(
         <div className='card'>
             <div className="left">
                 <div className='imgSpace'>
                     <img src={typesObject[bg]} alt="" id='bg'/>
-                    <img src={img} alt='Image of pokemon' />
+                    <img src={img} alt='Image of pokemon' className='img'/>
                 </div>
             </div>
             <div className="right">
-                <h1>{name}Nome</h1>
+                <h1>{name}</h1>
                 <ul>
-                    <li><p>{typesTranslator[type]}</p></li>
+                    <li><img src={typesTranslator[type]}/></li>
                     <li><p>Weight - {weight}</p></li>
                     <li><p>Height - {height}</p></li>
                     <li><p>Capture Rate - {captureRate}</p></li>
