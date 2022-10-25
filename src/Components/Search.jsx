@@ -55,9 +55,10 @@ function Search() {
 
     const typeHandler = (types) => {
         if(types[1]) {
-            var tipo = <img src={typesTranslator[types[0].type.name]}></img> + <img src={typesTranslator[types[0].type.name]}></img> 
+            var tipo = `${<img src={typesTranslator[types[0].type.name]}></img>} | ${<img src={typesTranslator[types[0].type.name]}></img>}`
+            return tipo
         } else {
-            return  <img src={types[0].type.name}></img>
+            return  `${<img src={types[0].type.name}></img>}`
         }
     }
 
