@@ -56,11 +56,11 @@ function Search() {
     const typeHandler = (types) => {
         if(types[1]) {
             var tipo = []
-            tipo.push(<img src={typesTranslator[types[0].type.name]} key='1' alt='Icon'></img>) //Um elemento em react precisa de uma key
-            tipo.push(<img src={typesTranslator[types[1].type.name]} key='2' alt='Icon'></img>)
+            tipo.push(<img src={typesTranslator[types[0].type.name]} key='1' alt='Icon' className='icon'></img>) //Um elemento em react precisa de uma key
+            tipo.push(<img src={typesTranslator[types[1].type.name]} key='2' alt='Icon' className='icon'></img>)
             return tipo
         } else {
-            var tipo = <img src={typesTranslator[types[0].type.name]} alt='Icon'></img> //Um elemento em react precisa de uma key
+            var tipo = <img src={typesTranslator[types[0].type.name]} alt='Icon' className='icon'></img> //Um elemento em react precisa de uma key
             return tipo
         }
     }
@@ -73,7 +73,9 @@ function Search() {
     function PokeAPI() {
         setPikachu(true)
         var pokemon = `https://pokeapi.co/api/v2/pokemon/${pokeName.toLowerCase()}`
-        fetch(pokemon).then((response) => {
+        fetch(pokemon, {
+            "method": "GET"
+        }).then((response) => {
             response.json().then((data) => {
                 var species = data.species.url
                 fetch(species).then(response => response.json().then(dataSpecies => {
