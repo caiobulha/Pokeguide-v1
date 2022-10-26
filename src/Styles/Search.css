@@ -6,6 +6,8 @@
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
+    height: 90vh;
+    position: relative;
 }
 
 .search input {
@@ -13,9 +15,9 @@
     display: flex;  
     justify-content: center;
     height: 50px;
-    margin-top: 10vh;
     border-radius: 10px;
     font-size: 1.3em;
+    margin: 0 auto;
     padding-left: 30px;
     background-image: url('../assets/pokeball.png');
     background-position: left;
@@ -40,4 +42,31 @@
     height: 30px;
 }
 
+.icon {
+    width: 60px;
+    height: 60px;
+}
 
+.resWrapper {
+    position: absolute;
+    left: 0;
+    width: 70%;
+    z-index: 10000;
+    height: 90%;
+    left: 0;
+    transition: 1s ease-in-out;
+}
+
+.search button {
+    background-color: #FEE000;
+    outline: none;
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: 5px 10px;   
+    cursor: pointer;
+    border: 1px solid rgba(0, 0, 0, 0.426) ;
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+}

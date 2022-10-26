@@ -95,7 +95,7 @@ function Search() {
             <input type="text" name="Pokemon" id="pokemon" placeholder='Search Here...' onChange={(e) => setPokeName(e.target.value)}></input>
             <button onClick={PokeAPI}>Go!</button>
             {pikachu ? <img src={pika}></img> : mimikyu ? <img src={mimi}></img> : false}
-            {res && res}
+            <div className="resWrapper" style={{top: res? '10px': '-1500px'}}>{res && res}</div>
         </div>
     )
 }
