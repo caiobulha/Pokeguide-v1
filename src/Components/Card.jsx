@@ -38,21 +38,8 @@ function Card({name, description, weight, height, captureRate, img, bg, type}) {
 
     return(
         <div className='card'>
-            <div className="left">
-                <div className='imgSpace'>
-                    <img src={typesObject[bg]} alt="" id='bg'/>
-                    <img src={img} alt='Image of pokemon' className='img'/>
-                </div>
-            </div>
-            <div className="right">
-                <h1>{name}</h1>
-                <ul>
-                    <li><p>{type}</p></li>
-                    <li><p>Weight - {weight}</p></li>
-                    <li><p>Height - {height}</p></li>
-                    <li><p>Capture Rate - {captureRate}</p></li>
-                    <li><span>{description}</span></li>
-                </ul>
+            <div className="imgSpace" style={{backgroundImage: `url(${typesObject[bg]})`}}>
+
             </div>
         </div>
     )

@@ -49,11 +49,9 @@
 
 .resWrapper {
     position: absolute;
-    left: 0;
     width: 70%;
-    z-index: 10000;
+    z-index: 1000;
     height: 90%;
-    left: 0;
     transition: 1s ease-in-out;
 }
 
