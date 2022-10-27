@@ -66,7 +66,7 @@ function Search() {
     }
 
     function insertInfo(data, dataSpecies) {
-        var card = <Card name={data.name} description={dataSpecies.flavor_text} weight={data.weight} height={data.height} captureRate={dataSpecies.capture_rate} img={data.sprites.front_default} bg={data.types[0].type.name} type={typeHandler(data.types)}/>
+        var card = <Card name={data.name} description={dataSpecies.flavor_text_entries[0].flavor_text} weight={data.weight} height={data.height} captureRate={dataSpecies.capture_rate} img={data.sprites.front_default} bg={data.types[0].type.name} type={typeHandler(data.types)} num={data.id} shiny={data.sprites.front_shiny} legendary={dataSpecies.is_legendary}/>
         setRes(card)
     }
 
@@ -95,7 +95,7 @@ function Search() {
             <input type="text" name="Pokemon" id="pokemon" placeholder='Search Here...' onChange={(e) => setPokeName(e.target.value)}></input>
             <button onClick={PokeAPI}>Go!</button>
             {pikachu ? <img src={pika}></img> : mimikyu ? <img src={mimi}></img> : false}
-            <div className="resWrapper" style={{top: res? 'translateX(-50%)': 'translateX(-1500px)'}}>{res && res}</div>
+            <div className="resWrapper" style={{transform: res? 'translateY(40%)': 'translateY(-1000px)'}}>{res}</div>
         </div>
     )
 }
