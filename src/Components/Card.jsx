@@ -14,11 +14,14 @@ import space from '../assets/backgrounds/space.gif'
 import stone from '../assets/backgrounds/stone.png'
 import electric from '../assets/backgrounds/eletric.gif'
 import Sparkles from '../assets/sparkles.png'
+import hd from '../assets/hd.png'
 import { useEffect, useState } from 'react'
+import Paragraph from './Paragraph'
 
-function Card({name, description, weight, height, captureRate, img, bg, type, num, shiny, legendary}) {
+function Card({name, description, weight, height, captureRate, img, bg, type, num, shiny, legendary, highQuality}) {
     const[sparkling, setSparkling] = useState(false)
     const[descs, setDesc] = useState([])
+    const[HD, setHD] = useState()
     const typesObject = {
         'fire': fire,
         'water': water,
@@ -47,23 +50,26 @@ function Card({name, description, weight, height, captureRate, img, bg, type, nu
         }).then(response => {
             response.json().then(data => {
                 for(var i = 1; i<22; i++) {
-                    descriptions.push(<p key={num}>data.flavor_text_entries[i].flavor_text</p>)
-                    descriptions.push(<p key={num}>data.flavor_text_entries[i].version.name</p>)
+                    descriptions.push(<Paragraph content={data.flavor_text_entries[i].flavor_text} key={i}></Paragraph>)
+                    descriptions.push(<Paragraph content={data.flavor_text_entries[i].version.name} key={i + 1}></Paragraph>)
                 }
                 setDesc(descriptions)
             })
         })
     }
     useEffect(() => (
-        writeFlavors
+        writeFlavors()
     ), [])
 
     return(
         <div className='card'>
             <div className="imgSpace" style={{backgroundImage: `url(${typesObject[bg]})`}}>
-                <img src={Sparkles} alt="Sparkles" onClick={() => setSparkling(!sparkling)} className='sparkling'/>
+                <div className="icons">
+                    <img src={Sparkles} alt="Sparkles" onClick={() => setSparkling(!sparkling)} className='sparkling'/>
+                    <img src={hd} alt="Sparkles" onClick={() => setHD(!HD)} className='sparkling hd'/>
+                </div>
                 <h1>{name}</h1>
-                <img src={sparkling ?  shiny : img} alt="Pokemon Image" className='image'/>
+                <img src={sparkling ?  shiny : HD ?  highQuality: img} alt="Pokemon Image" className='image'/>
                 <h1>#{num}</h1>
             </div>
             <div className="contentSpace">

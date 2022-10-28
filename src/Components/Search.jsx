@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import '../Styles/Search.css'
 import Card from './Card'
 import pika from '../assets/pikachu.gif'
@@ -27,6 +27,7 @@ function Search() {
     const[res, setRes] = useState()
     const[mimikyu, setMimikyu] = useState()
     const[pikachu, setPikachu] = useState()
+    const resultado = useRef()
     const typesTranslator = {
         'fire': fireI,
         'water': waterI,
@@ -66,7 +67,7 @@ function Search() {
     }
 
     function insertInfo(data, dataSpecies) {
-        var card = <Card name={data.name} description={dataSpecies.flavor_text_entries[0].flavor_text} weight={data.weight} height={data.height} captureRate={dataSpecies.capture_rate} img={data.sprites.front_default} bg={data.types[0].type.name} type={typeHandler(data.types)} num={data.id} shiny={data.sprites.front_shiny} legendary={dataSpecies.is_legendary}/>
+        var card = <Card name={data.name} description={dataSpecies.flavor_text_entries[0].flavor_text} weight={data.weight} height={data.height} captureRate={dataSpecies.capture_rate} img={data.sprites.front_default} bg={data.types[0].type.name} type={typeHandler(data.types)} num={data.id} shiny={data.sprites.front_shiny} legendary={dataSpecies.is_legendary} highQuality={data.sprites.other[`official-artwork`].front_default}/>
         setRes(card)
     }
 
@@ -88,6 +89,14 @@ function Search() {
         })
     }
 
+    useEffect(() => {
+        document.addEventListener('keydown', handleKey)
+    }, [])
+
+    const handleKey = (e) => {
+        e.key == 'Escape' && setRes(false)
+    }
+
     return(
         <div className='search'>
             <h1>Search Area</h1>
@@ -95,7 +104,7 @@ function Search() {
             <input type="text" name="Pokemon" id="pokemon" placeholder='Search Here...' onChange={(e) => setPokeName(e.target.value)}></input>
             <button onClick={PokeAPI}>Go!</button>
             {pikachu ? <img src={pika}></img> : mimikyu ? <img src={mimi}></img> : false}
-            <div className="resWrapper" style={{transform: res? 'translateY(40%)': 'translateY(-1000px)'}}>{res}</div>
+            <div className="resWrapper" style={{transform: res? 'translateY(40%)': 'translateY(-1000px)'}} ref={resultado}>{res}</div>
         </div>
     )
 }

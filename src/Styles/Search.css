@@ -49,10 +49,15 @@
 
 .resWrapper {
     position: absolute;
-    width: 70%;
+    width: 70vw;
+    height: 300px;
     z-index: 1000;
-    height: 90%;
     transition: 1s ease-in-out;
+    border-radius: 10px;
+}
+
+.resWrapper > * {
+    border-radius: 10px;
 }
 
 .search button {
