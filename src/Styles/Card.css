@@ -38,7 +38,6 @@
     position: absolute;
     right: 0;
     top: 0;
-    cursor: pointer;
     display: flex;
     flex-flow: column nowrap;
 }
@@ -48,6 +47,8 @@
   height: 50px;
   position: absolute;
   top: 0;
+  margin-right: 5px;
+  cursor: pointer;
   right: 0;
 }
 

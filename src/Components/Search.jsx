@@ -95,6 +95,7 @@ function Search() {
 
     const handleKey = (e) => {
         e.key == 'Escape' && setRes(false)
+        e.key == 'Enter' &&  PokeAPI()
     }
 
     return(

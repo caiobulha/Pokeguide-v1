@@ -43,6 +43,12 @@ function Card({name, description, weight, height, captureRate, img, bg, type, nu
         'electric': electric
     }
 
+    function randomNumber(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1) + min);
+      }
+
     function writeFlavors() {
         var descriptions = []
         fetch(`https://pokeapi.co/api/v2/pokemon-species/${name}/`, {
@@ -50,7 +56,7 @@ function Card({name, description, weight, height, captureRate, img, bg, type, nu
         }).then(response => {
             response.json().then(data => {
                 for(var i = 1; i<22; i++) {
-                    descriptions.push(<Paragraph content={data.flavor_text_entries[i].flavor_text} key={i}></Paragraph>)
+                    descriptions.push(<Paragraph content={data.flavor_text_entries[i].flavor_text} key={i} style={{backgroudColor: `rgba(${randomNumber(0,255)}, ${randomNumber(0,255)}, ${randomNumber(0,255)}, 0.50)`}}></Paragraph>)
                     descriptions.push(<Paragraph content={data.flavor_text_entries[i].version.name} key={i + 1}></Paragraph>)
                 }
                 setDesc(descriptions)
